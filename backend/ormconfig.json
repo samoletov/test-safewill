@@ -1,0 +1,10 @@
+{
+  "type": "mongodb",
+  "host": "mongo",
+  "port": 27017,
+  "username": "root",
+  "password": "example",
+  "database": "movies",
+  "entities": ["dist/**/*.entity{.ts,.js}"],
+  "synchronize": true
+}
