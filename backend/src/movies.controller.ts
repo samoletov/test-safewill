@@ -18,11 +18,11 @@ export class MoviesController {
     return (await this.moviesService.top10()).map((movie) => new MovieDto(movie));
   }
 
-  @Get('item/:id')
+  @Get('item/:slug')
   @ApiOperation({
-    summary: 'Get top movies',
+    summary: 'Get movie by slug',
   })
-  async item(@Param('id') id: string): Promise<MovieDetailsDto> {
-    return new MovieDetailsDto(await this.moviesService.findOne(id));
+  async item(@Param('slug') slug: string): Promise<MovieDetailsDto> {
+    return new MovieDetailsDto(await this.moviesService.findOneBySlug(slug));
   }
 }

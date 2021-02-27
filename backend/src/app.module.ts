@@ -6,6 +6,4 @@ import { MoviesModule } from './movies.module';
 @Module({
   imports: [TypeOrmModule.forRoot(), MoviesModule],
 })
-export class AppModule {
-  constructor() {}
-}
+export class AppModule {}

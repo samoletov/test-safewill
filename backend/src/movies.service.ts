@@ -20,7 +20,7 @@ export class MoviesService {
     });
   }
 
-  findOne(id: string): Promise<Movie> {
-    return this.MoviesRepository.findOne(id);
+  findOneBySlug(slug: string): Promise<Movie> {
+    return this.MoviesRepository.findOne({ slug });
   }
 }

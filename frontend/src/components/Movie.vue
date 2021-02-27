@@ -39,9 +39,9 @@ export default {
     async fetchData() {
       this.error = this.post = null;
       this.loading = true;
-      const id = this.$route.params.id;
+      const slug = this.$route.params.slug;
       try {
-        const { data } = await getItem(id);
+        const { data } = await getItem(slug);
         this.loading = false;
         this.item = data;
       } catch (err) {

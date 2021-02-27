@@ -17,7 +17,7 @@ const router = new VueRouter({
   base: __dirname,
   routes: [
     { path: '/', component: MoviesList },
-    { path: '/movie/:id', component: Movie, props: true },
+    { path: '/movie/:slug', component: Movie, props: true },
   ],
 });
 

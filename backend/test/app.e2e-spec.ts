@@ -1,6 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import slugify from 'slugify';
 import { Movie } from 'src/movie.entity';
 import { IMovie } from 'src/movie.interface';
 import * as request from 'supertest';
@@ -68,8 +69,9 @@ describe('AppController (e2e)', () => {
     expect(body[0].rating).toBeUndefined();
   });
 
-  it('/item/{id} (GET)', async () => {
-    const { status, body } = await request(app.getHttpServer()).get(`/item/${entities[0].id}`);
+  it('/item/{slug} (GET)', async () => {
+    const slug = slugify(entities[0].title, { lower: true });
+    const { status, body } = await request(app.getHttpServer()).get(`/item/${slug}`);
     expect(status).toEqual(200);
     expect(body).toHaveProperty('title');
     expect(body).toHaveProperty('id');

@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ position + 1 }} <a v-bind:href="'/movie/' + item.id">{{ item.title }}</a>
+    {{ position + 1 }} <a v-bind:href="'/movie/' + item.slug">{{ item.title }}</a>
   </div>
 </template>
 

@@ -27,8 +27,11 @@ export class MovieDto {
   id: string;
   @ApiProperty()
   title: string;
+  @ApiProperty()
+  slug: string;
   constructor(data: Movie) {
     this.id = data.id.toString();
     this.title = data.title;
+    this.slug = data.slug;
   }
 }
