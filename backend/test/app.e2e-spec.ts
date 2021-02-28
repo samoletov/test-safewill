@@ -2,12 +2,12 @@ import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import slugify from 'slugify';
-import { Movie } from 'src/movie.entity';
-import { IMovie } from 'src/movie.interface';
+import { IMovie } from 'src/movies/interfaces';
 import * as request from 'supertest';
 import { Repository } from 'typeorm';
 
-import { MoviesModule } from '../src/movies.module';
+import { Movie } from '../src/entity/movie.entity';
+import { MoviesModule } from '../src/movies/module';
 import * as initData from './data/init.json';
 
 describe('AppController (e2e)', () => {
@@ -16,19 +16,7 @@ describe('AppController (e2e)', () => {
   let entities: Movie[];
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [
-        MoviesModule,
-        TypeOrmModule.forRoot({
-          type: 'mongodb',
-          host: 'localhost',
-          port: 27017,
-          username: 'root',
-          password: 'example',
-          database: 'movies',
-          entities: ['**/*.entity.ts'],
-          synchronize: true,
-        }),
-      ],
+      imports: [MoviesModule, TypeOrmModule.forRoot()],
     }).compile();
 
     app = moduleFixture.createNestApplication();

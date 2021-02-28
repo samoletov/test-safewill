@@ -14,15 +14,20 @@
       <h3>Rating: {{ item.rating }}</h3>
       <h4>{{ item.description }}</h4>
       <img v-bind:src="item.logoUrl" />
+      <Suggestions v-bind:slug="item.slug" />
     </div>
   </div>
 </template>
 
 <script>
 import { getItem } from '../api';
+import Suggestions from './Suggestions.vue';
 
 export default {
   name: 'Movie',
+  components: {
+    Suggestions,
+  },
   data: () => {
     return {
       loading: false,

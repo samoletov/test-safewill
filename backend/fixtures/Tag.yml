@@ -1,0 +1,10 @@
+entity: Tag
+items:
+  drama:
+    name: 'drama'
+  criminal:
+    name: 'criminal'
+  comedy:
+    name: 'comedy'
+  action:
+    name: 'action'

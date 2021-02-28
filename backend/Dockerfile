@@ -2,9 +2,9 @@ FROM node:14.15.0
 # TODO: production build
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+# COPY package*.json ./
 
-RUN npm install
+# RUN npm install
 
 COPY . .
 

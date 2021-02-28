@@ -3,4 +3,9 @@ export interface IMovie {
   description: string;
   logoUrl: string;
   rating: number;
+  tags: string[];
+}
+
+export interface ITag {
+  title: string;
 }

@@ -1,10 +1,16 @@
 {
-  "type": "mongodb",
-  "host": "mongo",
-  "port": 27017,
-  "username": "root",
-  "password": "example",
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "admin",
+  "password": "admin",
   "database": "movies",
+  "synchronize": true,
   "entities": ["dist/**/*.entity{.ts,.js}"],
-  "synchronize": true
+  "repositories": ["dist/**/*.repository{.ts,.js}"],
+  "schema": "public",
+  "cli": {
+    "entitiesDir": "dist/entity/",
+    "repositoriesDir": "dist/entity/"
+  }
 }
